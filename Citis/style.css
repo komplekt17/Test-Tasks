@@ -1,0 +1,50 @@
+@import 'https://fonts.googleapis.com/css?family=Ubuntu:400,500&subset=latin,cyrillic';
+
+html, body {
+	margin: 0;
+	background: url(bg.jpg) center center no-repeat fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+	background-size: cover;
+}
+body {
+	font-family: 'Ubuntu', serif; 
+	font-size: 16px;
+}
+h3{
+	color: #fff;
+}
+.translate {
+	margin-top: 20px;
+	height: 700px;
+	background: rgba(0,0,0,.5);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+.output, .input{
+	
+}
+.text-1, .text-2{
+	width: 400px;
+	min-height: 200px;
+	height: auto;
+	font-weight: bold;
+	font-size: 26px;
+	background: #fff;
+	border: 1px solid #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	
+	.text-1, .text-2{
+		width: 330px;
+	}
+}

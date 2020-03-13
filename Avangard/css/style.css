@@ -1,0 +1,91 @@
+body{
+	margin: 0;
+}
+.football {
+	position: relative;
+	margin: 5px 0px;
+}
+.field {
+	width: 100%;
+	border-radius: 10px;
+}
+.ball {
+	position: absolute; 
+	top: 47.8%; 
+	left: 48.8%;
+	width: 30px; 
+	height: 30px;
+	cursor: pointer;
+}
+.mute{
+	background: url(../img/muted.png) no-repeat 1px 0px;
+	background-size: cover;
+	position: absolute;
+	top: 2%;
+	left: 95%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+.unmute{
+	background: url(../img/muted.png) no-repeat -50px 0px;
+	background-size: cover;
+}
+.message{
+	display: none;
+	font-size: 52px;
+	position: absolute;
+	left: 40%;
+	top: 5%;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	.message, .count{
+		font-size: 46px;
+	}
+	.mute{
+		background: url(../img/muted.png) no-repeat 1px 0px;
+		background-size: cover;
+		position: absolute;
+		top: 2%;
+		left: 95%;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+	.unmute{
+		background: url(../img/muted.png) no-repeat -30px 0px;
+		background-size: cover;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.message, .count{
+		font-size: 36px;
+	}
+	.mute{
+		background: url(../img/muted.png) no-repeat 1px 0px;
+		background-size: cover;
+		position: absolute;
+		top: 2%;
+		left: 92%;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+	.unmute{
+		background: url(../img/muted.png) no-repeat -30px 0px;
+		background-size: cover;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	.message, .count{
+		font-size: 26px;
+	}
+}

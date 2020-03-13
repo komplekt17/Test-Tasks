@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>miniSoccer</title>	
+	
+	<link rel="stylesheet" href="css/style.css">
+	<link href="img/ball.png" type="image/png" rel="shortcut icon" >
+	
+	<script src="https://code.jquery.com/jquery-3.2.0.js" crossorigin="anonymous" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ="></script>
+	<script defer src="js/script.js"></script> 
+</head>
+<body>
+		<div class="football">
+			<div id="mute" class="mute"></div>
+			<div class="message">
+				<span class="mess"></span><br>
+				<span class="count"></span>
+			</div>
+			<img class="field" src="img/field.jpg">
+			<img class="ball" src="img/ball.png">
+		</div>
+		<audio loop preload="auto">
+			<source src="audio/foot-noise.ogg" type="audio/ogg; codecs=vorbis">
+			<source src="audio/foot-noise.mp3" type="audio/mpeg">
+			<source src="audio/foot-noise.wav" type="audio/wav">
+		</audio>
+</body>
+</html>
