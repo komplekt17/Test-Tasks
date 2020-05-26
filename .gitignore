@@ -1,13 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/Raketa/node_modules
+*/**/node_modules
 
 # testing
-/Raketa/coverage
+*/**Raketa/coverage
 
 # production
-/Raketa/build
+*/**Raketa/build
 
 # misc
 .DS_Store
