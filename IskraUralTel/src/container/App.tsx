@@ -1,14 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react"
 import { connect } from "react-redux"
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles"
+import Grid from "@material-ui/core/Grid"
+import Paper from "@material-ui/core/Paper"
 import * as actions from "../actions"
-import { ListTasks } from "../components"
+import { ListTasks, CreaterTodo } from "../components"
 import { IAppProps, ITasks } from "../types"
 import "../styles/App.sass"
 
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		root: {
+			flexGrow: 1,
+			marginTop: 100,
+			paddingRight: 150,
+			paddingLeft: 150,
+		},
+		paper: {
+			padding: theme.spacing(1),
+			textAlign: "center",
+			color: theme.palette.text.secondary,
+		},
+	})
+)
+
 const App: React.FC<IAppProps> = props => {
-	const { store, anyHandler } = props
-	const { positions, tasks } = store
+	const classes = useStyles()
+	const { store, addNewTodo, changePropertyTask } = props
+	const { positions, priorities, tasks } = store
 
 	// сортировка тасков по статусу (ToDo, InProgress, Done)
 	const getTasksByStatus = (status: string): ITasks[] => {
@@ -19,20 +38,39 @@ const App: React.FC<IAppProps> = props => {
 		return arr
 	}
 
+	const listCard = positions.map((i, idx) => {
+		return (
+			<Grid key={idx} item xs={12} md={4} className="App">
+				<Paper className={classes.paper}>
+					<ListTasks
+						tasks={getTasksByStatus(positions[idx])}
+						status={positions[idx]}
+						position={idx}
+						changePropertyTask={changePropertyTask}
+					/>
+				</Paper>
+			</Grid>
+		)
+	})
+
 	return (
-		<div className="App">
-			<ListTasks
-				tasks={getTasksByStatus(positions[0])}
-				status={positions[0]}
-			/>
-			<ListTasks
-				tasks={getTasksByStatus(positions[1])}
-				status={positions[1]}
-			/>
-			<ListTasks
-				tasks={getTasksByStatus(positions[2])}
-				status={positions[2]}
-			/>
+		<div className={classes.root}>
+			<Grid container spacing={10}>
+				<Grid item xs={12}>
+					<Paper className={classes.paper}>
+						<CreaterTodo priorities={priorities} addNewTodo={addNewTodo} />
+					</Paper>
+				</Grid>
+			</Grid>
+			<Grid
+				container
+				spacing={3}
+				direction="row"
+				justify="center"
+				alignItems="baseline"
+			>
+				{listCard}
+			</Grid>
 		</div>
 	)
 }
@@ -43,8 +81,12 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		anyHandler: (payload: any) =>
-			dispatch(actions.anyHandlerAction(payload)),
+		addNewTodo: (obj: any) => dispatch(actions.addNewTodoAction(obj)),
+		changePropertyTask: (
+			idx: number,
+			name: string,
+			value: string | number
+		) => dispatch(actions.changePropertyTaskAction(idx, name, value)),
 	}
 }
 
