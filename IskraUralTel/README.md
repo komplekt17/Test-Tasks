@@ -26,7 +26,7 @@
   }
 
 Result:
-![](https://github.com/komplekt17/Test-Tasks/blob/master/gifs/view-task_res.jpg.jpg)
+![](https://github.com/komplekt17/Test-Tasks/blob/master/gifs/view-task_res.jpg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
